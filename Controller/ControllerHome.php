@@ -1,15 +1,20 @@
 <?php
+
 namespace Controller;
+
 use Utils;
-Class ControllerHome extends Controller{
+
+class ControllerHome extends Controller
+{
     //ATTRIBUTS
-    
+
     //CONSTRUCT
 
     //GET & SET
 
     //METHODS
-    public function displayPlayers(): self{
+    public function displayPlayers(): self
+    {
         $datas = $this->getModel()->findAll();
         $this
             ->getView()
@@ -17,10 +22,11 @@ Class ControllerHome extends Controller{
         return $this;
     }
 
-    public function registerPlayer(): self{
-        if(isset($_POST['envoyer'])){
+    public function registerPlayer(): self
+    {
+        if (isset($_POST['envoyer'])) {
 
-            if(empty($_POST['pseudo']) || empty($_POST['score']) || empty($_POST['team'])){
+            if (empty($_POST['pseudo']) || empty($_POST['score']) || empty($_POST['team'])) {
                 $this->getView()->setMessage('Veuillez remplir tous les champs.');
                 return $this;
             }
@@ -35,7 +41,7 @@ Class ControllerHome extends Controller{
 
             //Vérifier si le pseudo est libre
             $data = $this->getModel()->findByPseudo();
-            if($data){
+            if ($data) {
                 $this->getView()->setMessage("Ce pseudo n'est pas disponible.");
                 return $this;
             }

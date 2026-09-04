@@ -24,8 +24,9 @@ class Controller
         return $this->model;
     }
 
-    public function setModel(Model $newModel):self{
-        $this->model= $newModel;
+    public function setModel(Model $newModel): self
+    {
+        $this->model = $newModel;
         return $this;
     }
 
@@ -34,8 +35,9 @@ class Controller
         return $this->view;
     }
 
-    public function setView(View $newView):self{
-        $this->view= $newView;
+    public function setView(View $newView): self
+    {
+        $this->view = $newView;
         return $this;
     }
 
